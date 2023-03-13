@@ -18,3 +18,14 @@ steps:
     displayName: Archive Files
 - task: PublishBuildArtifacts@1
   displayName: Publish 
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'install node.js'
+
+- script: |
+    npm install
+    npm run build --if-present
+  displayName: 'npm install and build'
+
