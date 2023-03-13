@@ -9,14 +9,12 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-jobs:
-- job: my job
-  displayName: deploy html staticwebapp
-  steps:
-  - task: ArchiveFiles@2
-    inputs:
-      rootFolderOrFile: '$(build.sourcesDirectory)'
-      includeRootFolder: false
+
+steps:
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(build.sourcesDirectory)'
+    includeRootFolder: false
     displayName: Archive Files
-  - task: PublishBuildArtifacts@1
-    displayName: Publish 
+- task: PublishBuildArtifacts@1
+  displayName: Publish 
